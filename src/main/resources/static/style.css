@@ -1,0 +1,351 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #1e293b;
+}
+
+
+/* ================= HEADER ================= */
+
+.top-header {
+    background: #0f4c5c;
+    color: white;
+    padding: 22px 40px;
+}
+
+.top-header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.top-header p {
+    margin: 6px 0 0;
+    opacity: 0.85;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    display: flex;
+    background: white;
+    border-bottom: 1px solid #dbe3ea;
+    padding-left: 20px;
+    overflow-x: auto;
+}
+
+.nav-btn {
+    border: none;
+    background: transparent;
+    padding: 18px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #475569;
+    white-space: nowrap;
+}
+
+.nav-btn:hover {
+    background: #f1f5f9;
+}
+
+.nav-btn.active {
+    color: #0f766e;
+    font-weight: bold;
+    border-bottom: 3px solid #0f766e;
+}
+
+
+/* ================= MAIN ================= */
+
+.container {
+    max-width: 1400px;
+    margin: auto;
+    padding: 30px;
+}
+
+
+/* ================= TABS ================= */
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active-tab {
+    display: block;
+}
+
+
+/* ================= PAGE HEADER ================= */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.page-header h2 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.page-header p {
+    color: #64748b;
+}
+
+
+/* ================= CARDS ================= */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.card p {
+    font-size: 30px;
+    font-weight: bold;
+    color: #0f766e;
+    margin-bottom: 0;
+}
+
+
+/* ================= FORMS ================= */
+
+.form-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 25px;
+}
+
+.form-card h3 {
+    margin-top: 0;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #0f766e;
+}
+
+
+/* ================= FORM BUTTONS ================= */
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.primary-btn {
+    background: #0f766e;
+    color: white;
+    border: none;
+    padding: 11px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.primary-btn:hover {
+    background: #115e59;
+}
+
+.secondary-btn {
+    background: #e2e8f0;
+    color: #334155;
+    border: none;
+    padding: 11px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.secondary-btn:hover {
+    background: #cbd5e1;
+}
+
+
+/* ================= TABLE ================= */
+
+.table-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    overflow-x: auto;
+}
+
+.table-card h3 {
+    margin-top: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 13px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+th {
+    background: #f8fafc;
+    color: #475569;
+    font-size: 13px;
+}
+
+td {
+    font-size: 14px;
+}
+
+
+/* ================= ACTION BUTTONS ================= */
+
+.action-btn {
+    border: none;
+    padding: 7px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 2px;
+}
+
+.edit-btn {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.delete-btn {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.decision-btn {
+    background: #ccfbf1;
+    color: #0f766e;
+}
+
+
+/* ================= STATUS ================= */
+
+.status {
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status-ACTIVE {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status-RENEWAL_REVIEW {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status-RENEWED {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.status-TERMINATED {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+
+/* ================= EMPTY ================= */
+
+.empty {
+    text-align: center;
+    padding: 30px;
+    color: #64748b;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 800px) {
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full-width {
+        grid-column: auto;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .top-header {
+        padding: 20px;
+    }
+
+    .navbar {
+        padding-left: 0;
+    }
+
+}

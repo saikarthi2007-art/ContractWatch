@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ContractWatch</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="top-header">
+
+    <div>
+        <h1>ContractWatch</h1>
+        <p>Contract Renewal Reminder Tracker</p>
+    </div>
+
+</header>
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav class="navbar">
+
+    <button class="nav-btn active"
+            data-tab="dashboard">
+        Dashboard
+    </button>
+
+    <button class="nav-btn"
+            data-tab="vendors">
+        Vendors
+    </button>
+
+    <button class="nav-btn"
+            data-tab="contracts">
+        Contracts
+    </button>
+
+    <button class="nav-btn"
+            data-tab="renewals">
+        Renewal Reminders
+    </button>
+
+    <button class="nav-btn"
+            data-tab="decisions">
+        Renewal Decisions
+    </button>
+
+    <button class="nav-btn"
+            data-tab="documents">
+        Documents
+    </button>
+
+    <button class="nav-btn"
+            data-tab="reports">
+        Reports
+    </button>
+
+</nav>
+
+
+<main class="container">
+
+
+    <!-- ================================================= -->
+    <!-- DASHBOARD -->
+    <!-- ================================================= -->
+
+    <section id="dashboard" class="tab-content active-tab">
+
+        <div class="page-header">
+
+            <div>
+                <h2>Dashboard</h2>
+
+                <p>
+                    Overview of ContractWatch
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Total Contracts</h3>
+                <p id="totalContracts">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Active Contracts</h3>
+                <p id="activeContracts">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Renewal Review</h3>
+                <p id="renewalContracts">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Terminated</h3>
+                <p id="terminatedContracts">0</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- VENDORS -->
+    <!-- ================================================= -->
+
+    <section id="vendors" class="tab-content">
+
+        <div class="page-header">
+
+            <div>
+                <h2>Vendor Management</h2>
+
+                <p>
+                    Add, update and delete vendors.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="form-card">
+
+            <h3 id="vendorFormTitle">
+                Add Vendor
+            </h3>
+
+            <input type="hidden" id="vendorId">
+
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>Vendor Name</label>
+
+                    <input
+                            type="text"
+                            id="vendorName"
+                            placeholder="Enter vendor name">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Contact Email</label>
+
+                    <input
+                            type="email"
+                            id="vendorEmail"
+                            placeholder="Enter email">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Phone</label>
+
+                    <input
+                            type="tel"
+                            id="vendorPhone"
+                            placeholder="Enter phone">
+
+                </div>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                        class="primary-btn"
+                        id="vendorSaveBtn">
+
+                    Add Vendor
+
+                </button>
+
+                <button
+                        class="secondary-btn"
+                        id="vendorCancelBtn">
+
+                    Clear
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="table-card">
+
+            <h3>Vendor List</h3>
+
+            <table>
+
+                <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+                </tr>
+
+                </thead>
+
+                <tbody id="vendorTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- CONTRACTS -->
+    <!-- ================================================= -->
+
+    <section id="contracts" class="tab-content">
+
+        <div class="page-header">
+
+            <div>
+
+                <h2>Contract Management</h2>
+
+                <p>
+                    Add, update and delete contracts.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-card">
+
+            <h3 id="contractFormTitle">
+                Add Contract
+            </h3>
+
+            <input type="hidden" id="contractId">
+
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>Contract Title</label>
+
+                    <input
+                            type="text"
+                            id="contractTitle"
+                            placeholder="Enter contract title">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Vendor</label>
+
+                    <select id="contractVendor">
+
+                        <option value="">
+                            Select Vendor
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Start Date</label>
+
+                    <input
+                            type="date"
+                            id="startDate">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>End Date</label>
+
+                    <input
+                            type="date"
+                            id="endDate">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Notice Period (Days)</label>
+
+                    <input
+                            type="number"
+                            id="noticePeriod"
+                            placeholder="Example: 30">
+
+                </div>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                        class="primary-btn"
+                        id="contractSaveBtn">
+
+                    Add Contract
+
+                </button>
+
+                <button
+                        class="secondary-btn"
+                        id="contractCancelBtn">
+
+                    Clear
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="table-card">
+
+            <h3>Contract List</h3>
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Vendor</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Notice</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="contractTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- RENEWAL REMINDERS -->
+    <!-- ================================================= -->
+
+    <section id="renewals" class="tab-content">
+
+        <div class="page-header">
+
+            <div>
+
+                <h2>Renewal Reminders</h2>
+
+                <p>
+                    Contracts currently requiring renewal review.
+                </p>
+
+            </div>
+
+            <button
+                    class="primary-btn"
+                    id="refreshRenewalsBtn">
+
+                Refresh
+
+            </button>
+
+        </div>
+
+
+        <div class="table-card">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Contract</th>
+                    <th>Vendor</th>
+                    <th>End Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="renewalTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- RENEWAL DECISIONS -->
+    <!-- ================================================= -->
+
+    <section id="decisions" class="tab-content">
+
+        <div class="page-header">
+
+            <div>
+
+                <h2>Renewal Decisions</h2>
+
+                <p>
+                    Renew or terminate contracts.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-card">
+
+            <h3>Record Renewal Decision</h3>
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label>Contract</label>
+
+                    <select id="decisionContract">
+
+                        <option value="">
+                            Select Contract
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Decision</label>
+
+                    <select id="decisionType">
+
+                        <option value="">
+                            Select Decision
+                        </option>
+
+                        <option value="RENEWED">
+                            RENEWED
+                        </option>
+
+                        <option value="TERMINATED">
+                            TERMINATED
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>New End Date</label>
+
+                    <input
+                            type="date"
+                            id="newEndDate">
+
+                </div>
+
+
+                <div class="form-group full-width">
+
+                    <label>Notes</label>
+
+                    <textarea
+                            id="decisionNotes"
+                            placeholder="Enter notes"></textarea>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                        class="primary-btn"
+                        id="decisionSaveBtn">
+
+                    Save Decision
+
+                </button>
+
+                <button
+                        class="secondary-btn"
+                        id="decisionClearBtn">
+
+                    Clear
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="table-card">
+
+            <h3>Decision History</h3>
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Decision</th>
+                    <th>New End Date</th>
+                    <th>Decision Date</th>
+                    <th>Notes</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="decisionTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- DOCUMENTS -->
+    <!-- ================================================= -->
+
+    <section id="documents" class="tab-content">
+
+        <div class="page-header">
+
+            <div>
+
+                <h2>Contract Documents</h2>
+
+                <p>
+                    Add and view contract documents.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-card">
+
+            <h3>Add Document</h3>
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label>Contract</label>
+
+                    <select id="documentContract">
+
+                        <option value="">
+                            Select Contract
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Document Name</label>
+
+                    <input
+                            type="text"
+                            id="documentName"
+                            placeholder="Example: Agreement">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Document Reference</label>
+
+                    <input
+                            type="text"
+                            id="documentReference"
+                            placeholder="Example: DOC-001">
+
+                </div>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                        class="primary-btn"
+                        id="documentSaveBtn">
+
+                    Add Document
+
+                </button>
+
+                <button
+                        class="secondary-btn"
+                        id="documentClearBtn">
+
+                    Clear
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="table-card">
+
+            <h3>Documents</h3>
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Document Name</th>
+                    <th>Reference</th>
+                    <th>Added Date</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="documentTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- REPORTS -->
+    <!-- ================================================= -->
+
+    <section id="reports" class="tab-content">
+
+        <div class="page-header">
+
+            <div>
+
+                <h2>Reports</h2>
+
+                <p>
+                    ContractWatch statistics and summary.
+                </p>
+
+            </div>
+
+            <button
+                    class="primary-btn"
+                    id="refreshReportBtn">
+
+                Refresh
+
+            </button>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Total Contracts</h3>
+                <p id="reportTotal">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Active</h3>
+                <p id="reportActive">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Renewal Review</h3>
+                <p id="reportReview">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Terminated</h3>
+                <p id="reportTerminated">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Expiring in 30 Days</h3>
+                <p id="reportExpiring">0</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
